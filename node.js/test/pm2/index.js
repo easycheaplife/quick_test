@@ -5,7 +5,9 @@ pm2.connect(function(err) {
 		process.exit(2);
 	}
 
-	pm2.describe('app',function(err,processDescription){
+	// pm2 start app.js -i 0 --name "api"
+	// monitor the status
+	pm2.describe('api',function(err,processDescription){
 		console.log(processDescription);
 		pm2.disconnect();   // Disconnects from PM2
 		if (err) throw err
