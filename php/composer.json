@@ -1,0 +1,9 @@
+{
+	"require": {
+		"willdurand/geocoder": "^3.3",
+		"phpmailer/phpmailer": "~5.2",
+		"zhuzhichao/ip-location-zh": "^2.0",
+		"davegardnerisme/nsqphp": "dev-master",
+		"react/react": "^0.4.2"
+	}
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+	<a href="http://jquery.com/">jQuery</a>
+    <h1><%= title %></h1>
+	<script src="/javascripts/jquery-2.1.4.js" type="text/javascripts"></script>
+	<script type="text/javascripts">
+		$( document ).ready(function() {
+			$( "a" ).click(function( event ) {
+		        alert( "Thanks for visiting!" );
+			});
+		});
+		$( document ).ready(function() {
+			$( "a" ).click(function( event ) {
+			alert( "The link will no longer take you to jquery.com" );
+			event.preventDefault();
+		});
+	});
+	</script>
+		<p>Welcome to <%= title %></p>
+  </body>
+</html>
