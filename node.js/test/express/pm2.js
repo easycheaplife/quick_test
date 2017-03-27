@@ -8,6 +8,7 @@ pm2.connect(function(err) {
 	    
 	pm2.start(
 		{
+			name : 'api',
 			script    : './bin/www',         // Script to be run
 			exec_mode : 'cluster',        // Allows your app to be clustered
 			instances : 4,                // Optional: Scales your app by 4
