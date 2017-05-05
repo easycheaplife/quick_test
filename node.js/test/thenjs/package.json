@@ -1,0 +1,17 @@
+{
+  "name": "thenjs",
+  "version": "1.0.0",
+  "description": "then.js test",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "dependencies":{
+	"thenjs":"2.0.5"
+  },
+  "keywords": [
+    "thenjs"
+  ],
+  "author": "King Lee",
+  "license": "ISC"
+}
