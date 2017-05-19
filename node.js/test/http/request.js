@@ -1,5 +1,5 @@
 var request = require('request');
-request('http://192.168.22.66:8888/', function (error, response, body) {
+request('http://127.0.0.1:3000/test', function (error, response, body) {
 	if (!error && response.statusCode == 200) {
 		console.log(body) 
 	}
