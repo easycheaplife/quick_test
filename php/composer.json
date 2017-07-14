@@ -4,6 +4,7 @@
 		"phpmailer/phpmailer": "~5.2",
 		"zhuzhichao/ip-location-zh": "^2.0",
 		"davegardnerisme/nsqphp": "dev-master",
-		"react/react": "^0.4.2"
+		"react/react": "^0.4.2",
+		"aliyuncs/oss-sdk-php": "~2.0"
 	}
 }
