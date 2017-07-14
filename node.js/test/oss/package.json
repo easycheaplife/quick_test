@@ -1,0 +1,15 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "oss test",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ali-oss": "^4.8.0",
+    "co": "^4.6.0"
+  }
+}
