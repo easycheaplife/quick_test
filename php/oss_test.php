@@ -14,6 +14,29 @@ $bucket = Common::getBucketName();
 $ossClient = Common::getOssClient();
 if (is_null($ossClient)) exit(1);
 
+function createBucket(){
+    global $ossClient;
+    global $bucket;
+    $ossClient->createBucket($bucket, OssClient::OSS_ACL_TYPE_PUBLIC_READ_WRITE);
+    Common::println("bucket $bucket created");
+}
+
+function deleteBucket(){
+    global $ossClient;
+    global $bucket;
+    $ossClient->deleteBucket($bucket);
+    Common::println("bucket $bucket deleted");
+}
+
+function listBuckets(){
+    global $ossClient;
+    $bucketListInfo = $ossClient->listBuckets();
+    $bucketList = $bucketListInfo->getBucketList();
+    foreach ($bucketList as $bucket) {
+        print($bucket->getLocation() . "\t" . $bucket->getName() . "\t" . $bucket->getCreatedate() . "\n");
+    }
+}
+
 function uploadFile(){
     global $ossClient;
     global $bucket;
@@ -34,12 +57,17 @@ function getObject(){
 function deleteObject(){
     global $bucket;
     global $ossClient;
-    $result = $ossClient->deleteObject($bucket, "./README.md");
+    $result = $ossClient->deleteObject($bucket, "README.md");
     Common::println("./README.md is deleted");
-    Common::println($result['x-oss-request-id']);
 }
 
-getObject();
+//uploadFile();
+//getObject();
+//deleteObject();
+listBuckets();
+createBucket();
+//deleteBucket();
+
 
 
 
