@@ -2,7 +2,7 @@ var oss = require('ali-oss');
 var co = require('co');
 var fs = require('fs');
 var config = {}
-var objectKey = 'package.json';
+var objectKey = 'civetweb-10rw.png';
 
 if(process.argv.length != 3){
 	console.error('param error! please input: node app oss');
@@ -48,10 +48,25 @@ function listBuckets() {
 	});
 }
 
+function list(){
+	co(function* () {
+		client.useBucket(config.bucket);
+		var max_keys = 1;
+		var result = yield client.list( {"max-keys": max_keys,'delimiter':'/'} );
+		console.log(result);
+	}).catch(function (err) {
+		  console.log(err);
+	});
+}
+
 function put(){
 	co(function* () {
 		client.useBucket(config.bucket);
-		var result = yield client.put(objectKey, '/tmp/package.json');
+		var result = yield client.put(objectKey, '/tmp/civetweb-10rw.png',{ headers: {
+				      'x-oss-object-acl': 'public-read'
+					}
+				}
+			);
 		console.log(result);
 	}).catch(function (err) {
 		  console.log(err);
@@ -61,7 +76,7 @@ function put(){
 function get(){
 	co(function* () {
 		client.useBucket(config.bucket);
-		var result = yield client.get(objectKey, '/tmp/package.json.oss');
+		var result = yield client.get(objectKey, '/tmp/civetweb-10rw.png.oss');
 		console.log(result);
 	}).catch(function (err) {
 		  console.log(err);
@@ -78,10 +93,33 @@ function del(){
 	});
 }
 
+function set_acl(acl){
+	co(function* (){
+		client.useBucket(config.bucket);
+		var result = yield client.putACL(objectKey,acl);
+		console.log(result);
+	}).catch(function (err) {
+		console.log(err); 
+	});
+}
+
+function get_acl(acl){
+	co(function* (){
+		client.useBucket(config.bucket);
+		var result = yield client.getACL(objectKey);
+		console.log(result.acl);
+	}).catch(function (err) {
+		console.log(err); 
+	});
+}
+
 //putBucket()
 //delBucket()
-listBuckets()
+//listBuckets()
+list()
 //put()
+//set_acl('public-read')
+//get_acl()
 //get()
 //del()
 
