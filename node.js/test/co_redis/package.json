@@ -1,0 +1,22 @@
+{
+  "name": "data-migration",
+  "version": "1.0.0",
+  "description": "migration data from oss to ceph",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "keywords": [
+    "ceph",
+    "oss",
+    "s3"
+  ],
+  "author": "King Lee",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "co-redis": "^2.1.1",
+    "log4js": "^2.2.0",
+    "redis": "^2.7.1"
+  }
+}
