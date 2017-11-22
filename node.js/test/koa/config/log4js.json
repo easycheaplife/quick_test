@@ -1,0 +1,17 @@
+{
+	"appenders": 
+	{ 
+		"access": { 
+			"type": "file", "filename": "access.log" 
+		},
+		"api": {
+			"type": "file", "filename": "api.log" 
+		}
+	},
+	"categories": 
+	{ 
+		"default": { 
+			"appenders": ["access"], "level": "debug" 
+		} 
+	}
+}
