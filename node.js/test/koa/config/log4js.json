@@ -2,10 +2,10 @@
 	"appenders": 
 	{ 
 		"access": { 
-			"type": "file", "filename": "access.log" 
+			"type": "file", "filename": "log/access.log" 
 		},
 		"api": {
-			"type": "file", "filename": "api.log" 
+			"type": "file", "filename": "log/api.log" 
 		}
 	},
 	"categories": 
