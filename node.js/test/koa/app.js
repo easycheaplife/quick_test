@@ -1,22 +1,13 @@
 const Koa = require('koa');
 const app = new Koa();
+const logger = require('./middleware/logger');
+const response = require('./middleware/response');
 const router = require('./routers/enter')
 
-// x-response-time
-app.use(async (ctx, next) => {
-	const start = Date.now();
-	await next();
-	const ms = Date.now() - start;
-	ctx.set('X-Response-Time', `${ms}ms`);
-});
-
-// logger
-app.use(async (ctx, next) => {
-	const start = Date.now();
-	await next();
-	const ms = Date.now() - start;
-	console.log(`${ctx.method} ${ctx.url} - ${ms}`);
-});
+// middleware for logger
+app.use(logger);
+// middleware for x-response-time
+app.use(response);
 
 app.on('error', err => {
 	log.error('server error', err)
